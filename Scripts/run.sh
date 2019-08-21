@@ -1,9 +1,23 @@
+# Find out if they have homebrew
+read -p 'Do you have homebrew installed? yes or no ' HAS_BREW
+
+if [ $HAS_BREW = 'no' ]
+then
+    ECHO 'Installing dependencies...'
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Installing jq
+ECHO
+ECHO 'Installing dependencies...'
+brew install jq
+
 #Set variables that will be used later
-BUCKET_NAME='circa-test-bucket-two'
 REGION='us-west-2'
 ACCOUNT_ID=`aws sts get-caller-identity | jq -r '.Account'`
+BUCKET_NAME="$ACCOUNT_ID-upload"
 ROLE_NAME='LambdaS3'
-FUNCTION_NAME='lambda_s3_transformer'
+FUNCTION_NAME='LambdaS3Transformer'
 HANDLER_NAME='lambda_function.lambda_handler'
 TEST_FILE_PATH='files/testfile.txt'
 TEST_FILE_NAME='testfile.txt'

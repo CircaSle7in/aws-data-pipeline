@@ -1,4 +1,5 @@
-BUCKET_NAME='circa-test-bucket-two'
+ACCOUNT_ID=`aws sts get-caller-identity | jq -r '.Account'`
+BUCKET_NAME="$ACCOUNT_ID-upload"
 REGION='us-west-2'
 
 ECHO
