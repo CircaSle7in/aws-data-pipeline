@@ -92,7 +92,7 @@ def upload_to_dynamo(parent_data, table_name):
             'file': {
                 'S': 'parent_file',
             },
-            'children': {
+            'json': {
                 'S': json.dumps(parent_data),
             }
         }
