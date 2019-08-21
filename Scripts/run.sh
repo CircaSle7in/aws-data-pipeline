@@ -5,7 +5,7 @@ ACCOUNT_ID=`aws sts get-caller-identity | jq -r '.Account'`
 ROLE_NAME='LambdaS3'
 FUNCTION_NAME='lambda_s3_transformer'
 HANDLER_NAME='lambda_function.lambda_handler'
-TEST_FILE_PATH='d:/circasle7in/projects/divvy/aws-data-pipeline/files/testfile.txt'
+TEST_FILE_PATH='files/testfile.txt'
 TEST_FILE_NAME='testfile.txt'
 
 cd ..
